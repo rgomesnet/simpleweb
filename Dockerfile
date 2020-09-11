@@ -3,10 +3,11 @@ FROM node:12.18.3-alpine
 
 # Copy sources file
 WORKDIR /app
-COPY . .
 
 # Install some dependencies
+COPY ./package.json .
 RUN yarn install
+COPY . .
 
 # Default command
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
